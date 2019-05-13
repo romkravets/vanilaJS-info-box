@@ -1,9 +1,20 @@
+.slider {
+   position: relative;
+   width: 250px;
+   height: 300px;
+   &__imsges-container {
+      position: relative;
+      display: flex;
+   }
+   &__btns {
+      position: absolute;
+      z-index: 10;
+      top: 140%;
+   }
+}
+
 .slider__image {
    position: absolute;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   right: 0;
    opacity: 0;
    z-index: 1;
    transition: opacity 1s;
