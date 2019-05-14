@@ -13,6 +13,9 @@ export class InfoBox {
       this.infoBoxData = infoBoxData;
       this.httpService = new HTTPServece();
       this.slider;
+      this.noteData;
+      this.currentNote = 0;
+      this.buttonNote;
       this.buttonPrev;
       this.buttonNext;
       this.render();
@@ -30,7 +33,7 @@ export class InfoBox {
       this.rootElement.appendChild(this.slider);
 
       for (let i = 0; i < this.infoBoxData.length; i++) {
-         const { img, title, description } = this.infoBoxData[i];
+         const { img, title, description, note } = this.infoBoxData[i];
          const infoBoxElement = `
          <div class="slider__image ${i == 0 ? 'visible' : ''}" data-slider="slide-${i}">
              <div class="slide__image">
@@ -42,6 +45,7 @@ export class InfoBox {
                    <h2>${title}</h2>
                  </div>
                  <p>${description}</p>
+                 <p class="slider__note ">${note}</p>
                </div>
              </div>
            </div>
@@ -49,13 +53,41 @@ export class InfoBox {
          this.slider.innerHTML += infoBoxElement;
       }
 
+      const buttonContainerNote = `
+         <div class="slider__note-container">
+            <button class="slider__btn-note" type="button">More</button>
+         </div>
+      `;
+
+      this.rootElement.innerHTML += buttonContainerNote;
+
+   
+
       const buttonContainer = `
          <div class="slider__btns">
             <input class="slider__prev" type="button" value="PREV"></input>
-            <input class="slider__next" type="button" value="NEXT;"></input>
+            <input class="slider__next" type="button" value="NEXT"></input>
          </div>
       `;
       this.rootElement.innerHTML += buttonContainer;
+
+      
+      this.noteData = document.querySelectorAll(".slider__note");
+      for (let i = 0; i < this.noteData.length; i++) {
+         
+      }
+      this.buttonNote = document.querySelector(".slider__btn-note");
+      this.buttonNote.addEventListener('click', () => {
+         console.log( this.noteData[this.currentNote]);
+         if(this.noteData[this.currentNote].classList.contains('slider__note-expand')) {
+            this.noteData[this.currentNote].classList.remove('slider__note-expand');
+            this.buttonNote.innerHTML = `More`
+         } else {
+            this.noteData[this.currentNote].classList.add('slider__note-expand');
+            this.buttonNote.innerHTML = `More MORE`
+         }
+         console.log("CLICK");
+       });
 
       this.buttonPrev = document.querySelector(BUTTON_PREV_CLASS);
       this.buttonPrev.addEventListener('click', () => {
@@ -74,7 +106,7 @@ export class InfoBox {
       })
 
       const slides = document.querySelectorAll(SLIDES_CLASS_ALL);
-      let currentSlide = 0;
+       let currentSlide = 0;
       const slideInterval = setInterval(() => {
          slides[currentSlide].classList.remove(VISIBLE_CLASS);
          currentSlide = (currentSlide + 1) % slides.length;

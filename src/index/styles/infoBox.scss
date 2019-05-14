@@ -1,15 +1,27 @@
 .slider {
    position: relative;
-   width: 250px;
-   height: 300px;
+   width: 300px;
+   height: 350px;
+   margin: 5rem auto;
    &__imsges-container {
       position: relative;
       display: flex;
    }
+   &__note {
+      opacity: 0;
+   }
+   &__note-expand {
+      opacity: 1;
+    }
+   &__note-container {
+      position: absolute;
+      z-index: 10;
+      top: 110%;
+   }
    &__btns {
       position: absolute;
       z-index: 10;
-      top: 140%;
+      top: 120%;
    }
 }
 
@@ -23,3 +35,5 @@
      z-index: 2;
    }
  }
+
+ 
