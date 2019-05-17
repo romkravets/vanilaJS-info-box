@@ -13,11 +13,16 @@
       & img {
          width: 100%;
          position: relative;
-         
       }
    }
    &__caption {
       position: absolute;
+   }
+   &__text {
+      max-height: 2.5rem;
+      height: 100%;
+      width: 95%;
+      overflow: hidden;
    }
    &__note {
       opacity: 0;
@@ -28,12 +33,12 @@
    &__note-container {
       position: absolute;
       z-index: 10;
-      top: 110%;
+      top: 60%;
    }
    &__btns {
       position: absolute;
       z-index: 10;
-      top: 120%;
+      top: 70%;
    }
 }
 
