@@ -37,15 +37,13 @@ export class InfoBox {
          const infoBoxElement = `
          <div class="slider__image ${i == 0 ? 'visible' : ''}" data-slider="slide-${i}">
              <div class="slide__image">
-              <img src="${img}" />
+              <img class="slider__img" src="${img}" />
              </div>
              <div class="slider__caption">
                <div class="slider__caption-content">
-                 <div class="slider__caption-title">
-                   <h2>${title}</h2>
-                 </div>
-                 <p class="slider__text">${description}</p>
-                 <p class="slider__note ">${note}</p>
+                   <h2 class="slider__title">${title}</h2>
+                  <div class="slider__text">${description}</div>
+                  <div class="slider__note ">${note}</div>
                </div>
              </div>
            </div>

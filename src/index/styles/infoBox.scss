@@ -1,39 +1,88 @@
 .slider {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   position: relative;
    width: 400px;
-	height: 414px;
-	background: url('/assets/images/comp_plate_graybasic.png') no-repeat;
-	background-size: 100%;
-   z-index: 20;
-   background-position: -2px 0;
-   padding: 10px 10px;
+   height: 414px;
+   background-color: #f7f1f1;
+   border-radius: 5px;
+   box-shadow: 3px 4px 15px #363636;
    &__images-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      & img {
-         width: 100%;
-         position: relative;
+      max-height: 256.5px;
+      height: 100%;
+   }
+   &__img {
+      width: 99%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 2s;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+   }
+   &__image {
+      position: absolute;
+      width: 405px;
+      margin: 0 auto;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 1s;
+      &.visible {
+         opacity: 1;
+         z-index: 2;
       }
    }
-   &__caption {
+   &__caption-content {
       position: absolute;
+      height: calc(414px - 41px - 256.5px);
+      padding: 10px;
+      bottom: 41px;
+      left: 0;
+      z-index: 100;
+      transition: opacity 1.5s, height 2s;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+   }
+   &__title {
+      font-size: 17px;
+      color: #fb6600;
    }
    &__text {
       max-height: 2.5rem;
       height: 100%;
-      width: 95%;
+      width: 98%;
       overflow: hidden;
    }
    &__note {
       opacity: 0;
+      transition: opacity 1s;
+      //height: calc(414px - 41px - 256.5px);
+
    }
    &__note-expand {
       opacity: 1;
+      transition: opacity 1s;
+      padding-top: 35px;
+      color: #bababa;
+      //height: calc(414px - 41px);
     }
    &__note-container {
       position: absolute;
       z-index: 10;
       top: 60%;
+   }
+   &__btn-note {
+      position: absolute;
+      left: 10px;
+      bottom: 51px;
+      font-size: 9px;
+      color: #fb6600;
+      background-color: transparent;
+      border: none;
+      padding: 0 30px;
+      white-space: nowrap;
+      outline: none;
    }
    &__btns {
       position: absolute;
@@ -41,18 +90,3 @@
       top: 70%;
    }
 }
-
-.slider__image {
-   position: absolute;
-   width: 410px;
-   margin: 0 auto;
-   opacity: 0;
-   z-index: 1;
-   transition: opacity 1s;
-   &.visible {
-     opacity: 1;
-     z-index: 2;
-   }
- }
-
- 
