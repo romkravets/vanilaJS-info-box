@@ -14,7 +14,7 @@ export class InfoBox {
       this.httpService = new HTTPServece();
       this.slider;
       this.noteData;
-      this.currentNote = 0;
+      this.currentNote = 2;
       this.buttonNote;
       this.buttonPrev;
       this.buttonNext;
@@ -45,7 +45,7 @@ export class InfoBox {
                    <h2>${title}</h2>
                  </div>
                  <p>${description}</p>
-                 <p class="slider__note ">${note}</p>
+                 <p class="slider__note data-note="note-${i}"">${note}</p>
                </div>
              </div>
            </div>
@@ -71,14 +71,15 @@ export class InfoBox {
       `;
       this.rootElement.innerHTML += buttonContainer;
 
-      
       this.noteData = document.querySelectorAll(".slider__note");
       for (let i = 0; i < this.noteData.length; i++) {
-         
+         console.log(this.noteData[this.currentNote]);
       }
+ 
       this.buttonNote = document.querySelector(".slider__btn-note");
+   
       this.buttonNote.addEventListener('click', () => {
-         console.log( this.noteData[this.currentNote]);
+         //console.log( this.noteData[this.currentNote]);
          if(this.noteData[this.currentNote].classList.contains('slider__note-expand')) {
             this.noteData[this.currentNote].classList.remove('slider__note-expand');
             this.buttonNote.innerHTML = `More`
@@ -86,7 +87,6 @@ export class InfoBox {
             this.noteData[this.currentNote].classList.add('slider__note-expand');
             this.buttonNote.innerHTML = `More MORE`
          }
-         console.log("CLICK");
        });
 
       this.buttonPrev = document.querySelector(BUTTON_PREV_CLASS);
@@ -107,11 +107,11 @@ export class InfoBox {
 
       const slides = document.querySelectorAll(SLIDES_CLASS_ALL);
        let currentSlide = 0;
-      const slideInterval = setInterval(() => {
-         slides[currentSlide].classList.remove(VISIBLE_CLASS);
-         currentSlide = (currentSlide + 1) % slides.length;
-         slides[currentSlide].classList.add(VISIBLE_CLASS);
-      }, 7000);
+      // const slideInterval = setInterval(() => {
+      //    slides[currentSlide].classList.remove(VISIBLE_CLASS);
+      //    currentSlide = (currentSlide + 1) % slides.length;
+      //    slides[currentSlide].classList.add(VISIBLE_CLASS);
+      // }, 7000);
    }
 }
 

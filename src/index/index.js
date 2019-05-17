@@ -1,4 +1,5 @@
 import './index.scss';
+import './styles/infoBox.scss';
 import { InfoBox } from './scripts/infoBox';
 
 const infoBoxData = [

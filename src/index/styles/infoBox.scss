@@ -1,11 +1,23 @@
 .slider {
-   position: relative;
-   width: 300px;
-   height: 350px;
-   margin: 5rem auto;
-   &__imsges-container {
-      position: relative;
+   width: 400px;
+	height: 414px;
+	background: url('/assets/images/comp_plate_graybasic.png') no-repeat;
+	background-size: 100%;
+   z-index: 20;
+   background-position: -2px 0;
+   padding: 10px 10px;
+   &__images-container {
       display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      & img {
+         width: 100%;
+         position: relative;
+         
+      }
+   }
+   &__caption {
+      position: absolute;
    }
    &__note {
       opacity: 0;
@@ -27,6 +39,8 @@
 
 .slider__image {
    position: absolute;
+   width: 410px;
+   margin: 0 auto;
    opacity: 0;
    z-index: 1;
    transition: opacity 1s;
