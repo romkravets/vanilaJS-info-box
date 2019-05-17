@@ -1,3 +1,4 @@
+@import './variables.scss';
 .slider {
    display: flex;
    flex-direction: column;
@@ -5,19 +6,19 @@
    position: relative;
    width: 400px;
    height: 414px;
-   background-color: #f7f1f1;
+   margin: 5rem auto;
+   background-color: rgb(247, 241, 241);
    border-radius: 5px;
-   box-shadow: 3px 4px 15px #363636;
+   box-shadow: 3px 4px 15px rgb(54, 54, 54);
    &__images-container {
       max-height: 256.5px;
       height: 100%;
    }
    &__img {
-      width: 99%;
+      width: 98.6%;
       position: absolute;
       top: 0;
       left: 0;
-      transition: opacity 2s;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
    }
@@ -27,11 +28,15 @@
       margin: 0 auto;
       opacity: 0;
       z-index: 1;
-      transition: opacity 1s;
+      transition: opacity 2s;
       &.visible {
          opacity: 1;
          z-index: 2;
       }
+   }
+   &__caption {
+      position: relative;
+      top: 419px;
    }
    &__caption-content {
       position: absolute;
@@ -43,50 +48,94 @@
       transition: opacity 1.5s, height 2s;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
+      &_expand {
+         height: calc(414px - 41px);
+      }
    }
    &__title {
       font-size: 17px;
-      color: #fb6600;
+      color: $accent-color;
    }
    &__text {
-      max-height: 2.5rem;
+      max-height: 2.4rem;
+      margin-bottom: 20px;
       height: 100%;
       width: 98%;
       overflow: hidden;
    }
+   &__text-expand {
+      overflow: visible;
+   }
    &__note {
       opacity: 0;
       transition: opacity 1s;
-      //height: calc(414px - 41px - 256.5px);
 
    }
    &__note-expand {
       opacity: 1;
       transition: opacity 1s;
       padding-top: 35px;
-      color: #bababa;
-      //height: calc(414px - 41px);
+      color: rgb(186, 186, 186);
     }
    &__note-container {
       position: absolute;
       z-index: 10;
-      top: 60%;
+      top: 83%;
    }
    &__btn-note {
-      position: absolute;
-      left: 10px;
-      bottom: 51px;
-      font-size: 9px;
-      color: #fb6600;
+      font-size: 12px;
+      color: $accent-color;
       background-color: transparent;
       border: none;
-      padding: 0 30px;
+      padding: 0 10px;
       white-space: nowrap;
       outline: none;
+      text-decoration: underline;
    }
    &__btns {
       position: absolute;
       z-index: 10;
-      top: 70%;
+      font-size: 16px;
+      top: 90%;
+      padding: 0 10px;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      color: #a0a0a0;
    }
+   &__control-btns {
+      display: flex;
+   }
+   &__prev {
+      padding-right: 1rem;
+   }
+   &__next {
+      padding-right: 13rem;
+   }
+   &__prev, &__next {
+      &:hover {
+         color: $accent-color;
+         text-decoration: underline;
+         transition: all 1s;
+      }
+   }
+
+   &__store-btns {
+      display: flex;
+      }
+   &__store-btn {
+      &:hover {
+         color: $accent-color;
+         transition: all 1s;
+      }
+   }
+}
+
+.slide__image-expand {
+   opacity: 0;
+   transition: opacity 2s;
+}
+
+.slide__image {
+   transition: all 2s;
 }
