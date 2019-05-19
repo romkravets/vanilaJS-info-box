@@ -1,4 +1,5 @@
 @import './variables.scss';
+
 .slider {
    display: flex;
    flex-direction: column;
@@ -119,7 +120,6 @@
          transition: all 1s;
       }
    }
-
    &__store-btns {
       display: flex;
       }
