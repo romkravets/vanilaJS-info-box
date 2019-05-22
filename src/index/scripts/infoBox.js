@@ -1,6 +1,12 @@
 import { HTTPServece } from "../../common/scripts/http-service";
 
 const ROOT_CLASS_NAMES = 'slider';
+const IMAGE_ROOT_CLASS = 'slide';
+const CAPTION_CLASS_EXPAND = `${ROOT_CLASS_NAMES}__caption-content_expand`;
+const SLIDE_CLASS_IMAGE = `.${IMAGE_ROOT_CLASS}__image`;
+const SLIDE_CLASS_IMAGE_EXPAND = `${IMAGE_ROOT_CLASS}__image-expand`;
+const TEXT_CLASS_EXPAND = `${ROOT_CLASS_NAMES}__text-expand`;
+const NOTE_CLASS_EXPAND = `${ROOT_CLASS_NAMES}__note-expand`;
 const SLIDES_CLASS_ALL = `.${ROOT_CLASS_NAMES}__image`;
 const BUTTON_PREV_CLASS = `.${ROOT_CLASS_NAMES}__prev`;
 const BUTTON_NEXT_CLASS = `.${ROOT_CLASS_NAMES}__next`;
@@ -36,23 +42,23 @@ export class InfoBox {
   toggleCaption() {
    this.captionData = document.querySelectorAll(".slider__caption-content");
    this.captionData.forEach((noteText, item) => {
-      if(this.captionData[item].classList.contains('slider__caption-content_expand')) {
-         this.captionData[item].classList.remove('slider__caption-content_expand');
+      if(this.captionData[item].classList.contains(CAPTION_CLASS_EXPAND)) {
+         this.captionData[item].classList.remove(CAPTION_CLASS_EXPAND);
          this.buttonNote.innerHTML = `Show details`;
       } else {
-         this.captionData[item].classList.add('slider__caption-content_expand');
+         this.captionData[item].classList.add(CAPTION_CLASS_EXPAND);
          this.buttonNote.innerHTML = `Hide details`;
       }
    });
   }
 
    toggleImage() {
-      this.imageData = document.querySelectorAll(".slide__image");
+      this.imageData = document.querySelectorAll(SLIDE_CLASS_IMAGE);
       this.imageData.forEach((noteText, item) => {
-         if(this.imageData[item].classList.contains('slide__image-expand')) {
-            this.imageData[item].classList.remove('slide__image-expand');
+         if(this.imageData[item].classList.contains(SLIDE_CLASS_IMAGE_EXPAND)) {
+            this.imageData[item].classList.remove(SLIDE_CLASS_IMAGE_EXPAND);
          } else {
-            this.imageData[item].classList.add('slide__image-expand');
+            this.imageData[item].classList.add(SLIDE_CLASS_IMAGE_EXPAND);
          }
       });
    }
@@ -60,10 +66,10 @@ export class InfoBox {
    toggleText() {
       this.textData = document.querySelectorAll(".slider__text");
       this.textData.forEach((noteText, item) => {
-         if(this.textData[item].classList.contains('slider__text-expand')) {
-            this.textData[item].classList.remove('slider__text-expand');
+         if(this.textData[item].classList.contains(TEXT_CLASS_EXPAND)) {
+            this.textData[item].classList.remove(TEXT_CLASS_EXPAND);
          } else {
-            this.textData[item].classList.add('slider__text-expand');
+            this.textData[item].classList.add(TEXT_CLASS_EXPAND);
          }
       });
    }
@@ -71,10 +77,10 @@ export class InfoBox {
    toggleNote() {
       this.noteData = document.querySelectorAll(".slider__note");
       this.noteData.forEach((noteText, item) => {
-         if(this.noteData[item].classList.contains('slider__note-expand')) {
-            this.noteData[item].classList.remove('slider__note-expand');
+         if(this.noteData[item].classList.contains(NOTE_CLASS_EXPAND)) {
+            this.noteData[item].classList.remove(NOTE_CLASS_EXPAND);
          } else {
-            this.noteData[item].classList.add('slider__note-expand');
+            this.noteData[item].classList.add(NOTE_CLASS_EXPAND);
          }
       });
    }
